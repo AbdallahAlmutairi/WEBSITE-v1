@@ -1,8 +1,13 @@
 fastapi
 uvicorn[standard]
-httpx
 pandas
 pandas_ta
-numpy
-aioredis
+httpx
+websockets
+pydantic
+yfinance
+redis
+python-dotenv
 pytest
+pytest-asyncio
+httpx[http2]

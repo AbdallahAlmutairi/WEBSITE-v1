@@ -3,8 +3,8 @@ from __future__ import annotations
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .api.routes_market import router as market_router
-from .api.routes_ai import router as ai_router
+from apps.backend.api.routes_market import router as market_router
+from apps.backend.api.routes_ai import router as ai_router
 
 app = FastAPI(title="Stock Analysis API")
 app.add_middleware(

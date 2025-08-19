@@ -3,11 +3,11 @@ from __future__ import annotations
 from fastapi import APIRouter, HTTPException
 import pandas as pd
 
-from ..core.cache import cache
-from ..data.provider_yahoo import YahooProvider
-from ..models.market import Candle, Quote, Technicals, TrendResult
-from ..services.indicators import indicators
-from ..services.trend import trend_from_candles
+from apps.backend.core.cache import cache
+from apps.backend.data.provider_yahoo import YahooProvider
+from apps.backend.models.market import Candle, Quote, Technicals, TrendResult
+from apps.backend.services.indicators import indicators
+from apps.backend.services.trend import trend_from_candles
 
 router = APIRouter(prefix="/api")
 provider = YahooProvider()
@@ -26,7 +26,10 @@ async def get_quote(symbol: str) -> Quote:
 
 @router.get("/history", response_model=list[Candle])
 async def get_history(symbol: str, interval: str = "1d", lookback: str = "1mo") -> list[Candle]:
-    candles = await provider.get_history(symbol, interval, lookback)
+    try:
+        candles = await provider.get_history(symbol, interval, lookback)
+    except Exception:
+        raise HTTPException(status_code=404, detail="Data not available")
     return candles
 
 

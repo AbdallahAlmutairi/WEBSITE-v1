@@ -7,12 +7,12 @@ import httpx
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 
-from ..core.config import get_settings
-from ..models.ai import AskRequest
-from ..models.market import Candle, Technicals, TrendResult
-from ..services.trend import trend_from_candles
-from ..services.indicators import indicators
-from ..data.provider_yahoo import YahooProvider
+from apps.backend.core.config import get_settings
+from apps.backend.models.ai import AskRequest
+from apps.backend.models.market import Candle, Technicals, TrendResult
+from apps.backend.services.trend import trend_from_candles
+from apps.backend.services.indicators import indicators
+from apps.backend.data.provider_yahoo import YahooProvider
 import pandas as pd
 
 router = APIRouter(prefix="/api/ai")
