@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+httpx
+pandas
+pandas_ta
+numpy
+aioredis
+pytest
