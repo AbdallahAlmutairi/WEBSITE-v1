@@ -1,0 +1,14 @@
+# Dependencies
+apps/frontend/node_modules/
+apps/backend/.venv/
+
+# Python
+**/__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Test and cache
+**/.pytest_cache/
+
